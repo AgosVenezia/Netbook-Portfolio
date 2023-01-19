@@ -110,6 +110,10 @@ a {
   border-radius: 1rem;
 }
 
+.btn svg {
+  margin-left: 1rem;
+}
+
 .btn__secondary {
   background-color: transparent;
   border: solid 1px var(--color-primary);
@@ -121,9 +125,51 @@ a {
   padding: 0 48px;
 }
 
+h2.section__title {
+  font-size: 1.125rem;
+  color: var(--color-primary);
+}
+
+p.section__subtitle {
+  color: var(--color-heading);
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 1.33;
+  margin-bottom: 1rem;
+}
+
 .container {
   width: var(--full-width);
   margin: 0 auto;
+}
+
+.card.rating .card__title,
+.card.awards .card__title {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.card.rating .card__subtitle {
+  display: flex;
+  align-items: center;
+}
+
+.card__avatars {
+  display: inline-flex;
+  margin-right: 1rem;
+}
+
+.card__avatars img {
+  border: solid 1px var(--color-white);
+  border-radius: 50%;
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  box-shadow: -5px 4px 14px rgba(151, 151, 151, 0.28);
+}
+
+.card__avatars img:not(:first-child) {
+  margin-left: -6px;
 }
 
 .prime {
@@ -212,17 +258,6 @@ a {
   margin: 6rem auto;
 }
 
-.whats-netbooks__content h2 {
-  font-size: 1.125rem;
-  color: var(--color-primary);
-}
-
-.whats-netbooks__content h3 {
-  font-size: 2.25rem;
-  line-height: 1.33;
-  margin-bottom: 1rem;
-}
-
 .whats-netbooks__content p {
   margin-bottom: 2rem;
 }
@@ -275,12 +310,12 @@ a {
   display: grid;
   grid-template-columns: 340px 340px 1fr;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .achievement .card {
   background: linear-gradient(#fff, #fff) padding-box,
-              linear-gradient(to bottom, rgba(185, 185, 185, 0.44), rgba(94, 94, 94, 0.58)) 
-              border-box;
+    linear-gradient(to bottom, rgba(185, 185, 185, 0.44), rgba(94, 94, 94, 0.58)) border-box;
   border: 1px solid transparent;
   border-radius: 1rem;
   padding: 3rem 1.125rem 2.5rem 2.5rem;
@@ -288,29 +323,17 @@ a {
 }
 
 .achievement .card a {
-  position: relative;
-  padding-right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .achievement .card a:hover {
   color: var(--color-primary);
 }
 
-/* .achievement .card a:after {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  content: "";
-  background-image: url("/images/ico-arrow.svg");
-  width: 10px;
-  height: 10px;
-} */
-
-.achievement .card a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.achievement .card a:hover svg path {
+  stroke: var(--color-primary);
 }
 
 .achievement .card:hover {
@@ -322,7 +345,7 @@ a {
   margin-bottom: 2.5rem;
 }
 
-.achievement .card__subtitle b {
+.card__subtitle b {
   color: var(--color-primary);
 }
 
@@ -330,8 +353,56 @@ a {
   margin-bottom: 2rem;
 }
 
-.card.rating .card__title, .card.awards .card__title {
-  display: flex;
-  gap: 0.5rem;
+.achievement__content {
+  margin-inline-start: auto;
+  width: 380px;
+}
+
+.achievement__content p:not(.section__subtitle) {
   margin-bottom: 2rem;
+}
+
+.community {
+  background: linear-gradient(0deg, rgba(241, 246, 253, 0) 1.63%, #f1f6fd 20.5%, #f1f6fd 58.57%, #ffffff 100%);
+}
+
+.community__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 2.5rem;
+}
+
+.community__card {
+  padding: 2.5rem 4rem 2.5rem 2.5rem;
+  background-color: var(--color-white);
+  box-shadow: 14px 22px 52px -12px rgba(127, 127, 127, 0.13);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/*.community__card-content {}*/
+
+.community__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 66px;
+  aspect-ratio: 1/1;
+  border-radius: 1.5rem;
+}
+
+.community__members .community__card-icon, .community__custom .community__card-icon {
+  background: linear-gradient(154.49deg, #5ca1fe 6.61%, #217bf4 89.72%);
+  box-shadow: 0px 10px 22px -2px rgba(109, 171, 255, 0.36);
+}
+.community__groups .community__card-icon, .community__builder .community__card-icon {
+  background: linear-gradient(154.49deg, #ff858a 6.61%, #f04148 89.72%);
+  box-shadow: 0px 8px 22px -2px rgba(248, 87, 94, 0.3);
+}
+.community__forum .community__card-icon, .community__scroll .community__card-icon {
+  background: linear-gradient(154.49deg, #FFD085 6.61%, #FFAF2E 89.72%);
+box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
 }
