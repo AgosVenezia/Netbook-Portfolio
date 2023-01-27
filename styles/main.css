@@ -108,6 +108,7 @@ a {
   line-height: 1;
   align-items: center;
   border-radius: 1rem;
+  border: 0;
 }
 
 .btn svg {
@@ -120,9 +121,21 @@ a {
   color: var(--color-primary);
 }
 
+.btn--dark {
+  background: var(--color-white);
+  color: var(--color-text);
+}
+
 .btn--large {
   height: 64px;
   padding: 0 48px;
+}
+
+.hide-text {
+  clip-path: circle(0);
+  width: 0;
+  display: inline-block;
+  height: 0;
 }
 
 h2.section__title {
@@ -170,6 +183,20 @@ p.section__subtitle {
 
 .card__avatars img:not(:first-child) {
   margin-left: -6px;
+}
+
+a.link__arrowed {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+a.link__arrowed:hover {
+  color: var(--color-primary);
+}
+
+a.link__arrowed:hover svg path {
+  stroke: var(--color-primary);
 }
 
 .prime {
@@ -323,20 +350,6 @@ p.section__subtitle {
   transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
-.achievement .card a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.achievement .card a:hover {
-  color: var(--color-primary);
-}
-
-.achievement .card a:hover svg path {
-  stroke: var(--color-primary);
-}
-
 .achievement .card:hover {
   box-shadow: 0px 26px 49px rgba(146, 165, 184, 0.24);
   transform: translate(-4px, -4px);
@@ -401,17 +414,20 @@ p.section__subtitle {
   border-radius: 1.5rem;
 }
 
-.community__members .community__card-icon, .community__custom .community__card-icon {
+.community__members .community__card-icon,
+.community__custom .community__card-icon {
   background: linear-gradient(154.49deg, #5ca1fe 6.61%, #217bf4 89.72%);
   box-shadow: 0px 10px 22px -2px rgba(109, 171, 255, 0.36);
 }
-.community__groups .community__card-icon, .community__builder .community__card-icon {
+.community__groups .community__card-icon,
+.community__builder .community__card-icon {
   background: linear-gradient(154.49deg, #ff858a 6.61%, #f04148 89.72%);
   box-shadow: 0px 8px 22px -2px rgba(248, 87, 94, 0.3);
 }
-.community__forum .community__card-icon, .community__scroll .community__card-icon {
-  background: linear-gradient(154.49deg, #FFD085 6.61%, #FFAF2E 89.72%);
-box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
+.community__forum .community__card-icon,
+.community__scroll .community__card-icon {
+  background: linear-gradient(154.49deg, #ffd085 6.61%, #ffaf2e 89.72%);
+  box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
 }
 
 .team {
@@ -458,12 +474,12 @@ box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
 .team__members {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem
+  gap: 2rem;
 }
 
 .team__member-card {
   text-align: center;
-  border: solid 1px #F3F3F3;
+  border: solid 1px #f3f3f3;
   border-radius: 1rem;
   transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
   padding: 2rem;
@@ -502,8 +518,9 @@ box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
 }
 
 .app {
-  background-color: #E5F0FD;
+  background-color: #e5f0fd;
   overflow: hidden;
+  margin-bottom: 7.5rem;
 }
 
 .app .container {
@@ -511,7 +528,6 @@ box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
   grid-template-columns: 350px 1fr;
   height: 560px;
   align-items: center;
-
 }
 
 .app__screenshot {
@@ -527,7 +543,8 @@ box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
   z-index: 1;
 }
 
-.app__screenshot-circle-1, .app__screenshot-circle-2 {
+.app__screenshot-circle-1,
+.app__screenshot-circle-2 {
   width: 145px;
   height: 145px;
   border-radius: 50%;
@@ -543,12 +560,12 @@ box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
 }
 
 .app__screenshot-circle-1 {
-  background-color: #FC6A65;
+  background-color: #fc6a65;
   bottom: 72px;
 }
 
 .app__screenshot-circle-2 {
-  background-color: #489D92;
+  background-color: #489d92;
   bottom: -72px;
 }
 
@@ -561,4 +578,142 @@ box-shadow: 0px 10px 22px -2px rgba(250, 186, 84, 0.3);
 .app__buttons img {
   border-radius: 0.5rem;
   box-shadow: 0px 0px 22px rgba(178, 188, 208, 0.21);
+}
+
+.news__articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4.5rem;
+}
+
+.news__article-image {
+  width: 100%;
+  border-radius: 1.5rem;
+}
+
+.news__article-content {
+  margin-top: 1.5rem;
+  padding-left: 4rem;
+  position: relative;
+}
+
+.news__article-content::before {
+  /* display: block; */
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 40px;
+  background-color: #FFAF2E;
+  top: 13px;
+  left: 1rem;
+}
+
+.news__article-content h3 {
+  margin-bottom: 1.5rem;
+}
+
+.news__content {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.footer {
+  background-color: #2B2B39;
+  color: #E7E7E7;
+  margin-top: 7.5rem;
+}
+
+.footer h3 {
+  color: var(--color-white);
+  font-size: 1.25rem;
+  margin-bottom: 1.3rem;
+}
+
+.footer__nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__nav li:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.footer__nav a {
+  color: #E7E7E7;
+}
+
+.footer__main {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  gap: 120px;
+  padding: 5rem 0;
+}
+
+.footer_singup h3 {
+  max-width: 200px;
+}
+
+.footer_singup-form {
+  border: solid 1px var(--color-white);
+  border-radius: 1rem;
+  display: flex;
+  margin-top: 2rem;
+}
+
+.footer_singup-form .btn {
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.footer_singup-form input {
+  all: unset;
+  flex-grow: 1;
+  padding: 0 1.5rem;
+}
+
+.footer__secondary {
+  background-color: #20202D;
+}
+
+.footer__secondary-content {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__secondary-content > * {
+  flex: 1
+}
+
+.footer__social-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.footer__social-links a {
+  display: block;
+  background-color: var(--color-white);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__secondary-logo {
+  display: flex;
+  justify-content: center;
 }
